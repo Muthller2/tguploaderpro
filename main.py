@@ -332,14 +332,14 @@ def onmessage(update,bot:ObigramClient):
                 return
         if '/account' in msgText:
             try:
-                account = str(msgText).split(' ',2)[1].split(',')
+                account = str(msgText).split(' ',2)[1].split(' ')
                 user = account[0]
                 passw = account[1]
                 getUser = user_info
                 if getUser:
                     getUser['moodle_user'] = user
                     getUser['moodle_password'] = passw
-                    jdb.save_data_user(username getUser)
+                    jdb.save_data_user(username,getUser)
                     jdb.save()
                     statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
                     bot.sendMessage(update.message.chat.id,statInfo)
