@@ -339,7 +339,7 @@ def onmessage(update,bot:ObigramClient):
                 if getUser:
                     getUser['moodle_user'] = user
                     getUser['moodle_password'] = passw
-                    jdb.save_data_user(username,getUser)
+                    jdb.save_data_user(username getUser)
                     jdb.save()
                     statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
                     bot.sendMessage(update.message.chat.id,statInfo)
